@@ -1,38 +1,71 @@
-.App {
-  text-align: center;
+body {
+  background: linear-gradient(to bottom right, #f8b2489d, #f8315270, #ff242456, #e9809585);
+  /* Substitua as cores acima pelas cores que desejar para o degradê */
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /* Impede a barra de rolagem */
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
+.noise {
+  position: absolute;
+  width: 100%; /* Muda para 100% para cobrir a largura total */
+  height: 100%; /* Muda para 100% para cobrir a altura total */
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFElEQVR42mNkYGD4z8DAwMgAC8APk1ZdYAAAAASUVORK5CYII=');
   pointer-events: none;
+  animation: noise 2s steps(10) infinite;
+  z-index: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes noise {
+  0%, 20%, 40%, 60%, 80%, 100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  30% {
+    transform: translate(5%, 5%);
+  }
+  50% {
+    transform: translate(-5%, 5%);
+  }
+  70% {
+    transform: translate(5%, -5%);
+  }
+  90% {
+    transform: translate(-5%, 0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.menu {
+  position: fixed;
+  top: 50px; /* Define a margem superior de 50px */
+  left: 50%; /* Centraliza o menu horizontalmente */
+  transform: translateX(-50%); /* Ajusta o posicionamento para a esquerda pela metade da largura do menu */
+  z-index: 2; /* Garante que o menu fique acima do ruído */
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.menu li {
+  display: inline-block; /* Exibe os itens do menu em linha horizontal */
+}
+
+.menu li a {
+  display: block;
   color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius: 15px; /* Adiciona bordas arredondadas */
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Altera o fundo ao passar o mouse */
 }
