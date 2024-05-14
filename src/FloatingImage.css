@@ -1,0 +1,29 @@
+.floating-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Estilos adicionais conforme necessário */
+  }
+  .floating-image img.codigo {
+    width: 280px;
+    height: 250px;
+    border-radius: 80% ; /* Arredonda as imagens de código */
+    transform: translateY(0px);
+    animation: float 5s ease-in-out infinite;
+
+  }
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-30px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  
